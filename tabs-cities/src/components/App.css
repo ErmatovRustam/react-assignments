@@ -22,3 +22,8 @@ button {
 #active {
   background-color: cadetblue;
 }
+
+#img {
+  width: 950px;
+  height: 600px;
+}
