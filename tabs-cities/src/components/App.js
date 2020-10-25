@@ -6,7 +6,7 @@ class App extends Component {
         super();
         this.state = {
             tabs: [
-                 
+    
                 {
                     id: 1, title: "London", content: "London is the capital city of England.",
                     imgSrc: 'https://imageproxy.themaven.net//https%3A%2F%2Fwww.history.com%2F.image%2FMTYyNDg1MjE3MTI1Mjc5Mzk4%2Ftopic-london-gettyimages-760251843-promo.jpg'
