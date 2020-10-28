@@ -15,7 +15,7 @@ class Ad extends Component {
     state = {}
     
     
-    render() { 
+    render()   { 
         return (
             <div>
             <h3 id = 'adTitle'>Do not Miss, Coming Soon</h3>
