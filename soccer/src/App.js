@@ -5,36 +5,57 @@ class App extends Component {
   constructor(){
   super();
   this.state = {
-    counter: 1,
-    title:  '',
+    title: '',
+    error: '',
+    rawData: [],
+    movies: [],
   };
 }
-  fetch(URL) {
-    
+  
+  handleInput = (e) => {
+    const { value } = e.target;
+    this.setState({ title: value });  
   }
 
-  handleInput = (e) => {
-     this.setState({ title: e.target.value})
-  }
-
-  handleInput = (e) => {
+  handleBtn = (e) => {
+    e.preventDefault();
     const { title } = this.state;
 
-    fetch(`https://api.footystats.org/league-players?key=example&season_id=2012`)
+    fetch(`https://www.omdbapi.com/?s=${title}&page=1&apikey=cb289192`)
       .then((res) => res.json())
-      .then((players) => {
-        console.log(players);
+      .then((movies) => {
+        console.log(movies)
+        if (movies.Response === 'False') {
+          this.setState({ error: movies.Error })
+        }
+        this.setState({movies: movies.Search,rawData: movies,})
       })
-        .catch((err) => console.log(err));
-  };
+      .catch((err) => {
+        this.setState({
+          error: err.messege})
+      });
+    };
 
   render() {
+    const { rawData, movies } = this.state;
+    console.log(rawData, movies)
     return (
       <div className="App">
-        <h1>Soccer Players: {this.state.title}</h1>
-        <input id='input' placeholder= 'Players name' onChange={this.handleInput} />
-        <button id='searchBtn' onClick= {this.handleBtn} >Search</button>
-        
+        <h1>Movie Names: {this.state.title}</h1>
+        <input id='input' placeholder= 'Movie name' onChange={this.handleInput} />
+        <button id='searchBtn' onClick={this.handleBtn} >Search</button>
+
+        <div className = 'movie-card'>
+          { movies.map(movi => {
+              return (
+                <div>
+                  <h1>{movi.Title}</h1>
+                  <img src={movi.Poster} />
+                  <p>Year: {movi.Year}</p>
+                </div>
+              );
+              })}
+          </div>
       </div>
     );
   }
