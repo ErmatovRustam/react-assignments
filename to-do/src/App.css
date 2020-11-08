@@ -1,0 +1,30 @@
+body{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(21, 31, 31);
+  color: white;
+}
+#user-input{
+  margin: 25px;
+  padding: 7px 10px;
+  font-size: 22px;
+  font-style: oblique;
+  width: 300px;
+  border-radius: 10px;
+  align-items: center;
+
+}
+
+
+#addBtn{
+  font-size: 24px;
+  background-color: aquamarine;
+  border-radius: 10px;
+  padding: 8px 6px;
+  
+}
+
+.functionalBtn{
+  padding: 5px;
+  margin: 5px;
+}

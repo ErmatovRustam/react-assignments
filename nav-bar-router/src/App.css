@@ -1,0 +1,13 @@
+ul{
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  margin: 15px;
+  font-size: 28px;
+  list-style-type: none;
+}
+
+h4{
+  text-align: center;
+  font-size: 48px;
+}
