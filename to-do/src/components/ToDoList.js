@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import './../App.css'
+import React from 'react'
+import EachToDo from './EachToDo'
+
 
 function ToDoList(props) {
-    return(<h1> { props.data[0] } </h1>)
+    return (
+        <div>{
+            props.l.map((item, index) => {
+                return (<EachToDo key={index} name={item} order = {index} />) 
+            })
+        }</div>
+    )
 }
- 
-export default ToDoList;
+export default ToDoList
